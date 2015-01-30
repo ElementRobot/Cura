@@ -47,6 +47,8 @@ def getEngineFilename():
 		return '/usr/bin/CuraEngine'
 	if os.path.isfile('/usr/local/bin/CuraEngine'):
 		return '/usr/local/bin/CuraEngine'
+	if os.path.isfile('/Applications/Cura/Cura.app/Contents/Resources/CuraEngine'):
+		return '/Applications/Cura/Cura.app/Contents/Resources/CuraEngine'
 	return ''
 
 class EngineResult(object):
