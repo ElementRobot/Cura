@@ -72,13 +72,15 @@ def main():
 		if not options.output:
 			options.output = args[0] + profile.getGCodeExtension()
 		with open(options.output, "wb") as f:
-			gcode = engine.getResult().getGCode()
+			results = engine.getResult()
+			gcode = results.getGCode()
 			while True:
 				data = gcode.read()
 				if len(data) == 0:
 					break
 				f.write(data)
 		print 'GCode file saved : %s' % options.output
+		print 'filament_used_mm: %s' % results.getFilamentAmount()
 
 		engine.cleanup()
 	else:

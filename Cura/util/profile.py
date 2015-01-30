@@ -700,6 +700,8 @@ def loadProfile(filename, allMachines = False):
 			section = 'profile'
 			if set.isAlteration():
 				section = 'alterations'
+			if set.isMachineSetting():
+				section = 'machine'
 			if profileParser.has_option(section, set.getName()):
 				set.setValue(unicode(profileParser.get(section, set.getName()), 'utf-8', 'replace'))
 

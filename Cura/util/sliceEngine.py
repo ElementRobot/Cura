@@ -95,10 +95,8 @@ class EngineResult(object):
 			return _('%d hour %d minutes') % (int(self._printTimeSeconds / 60 / 60), int(self._printTimeSeconds / 60) % 60)
 		return _('%d hours %d minutes') % (int(self._printTimeSeconds / 60 / 60), int(self._printTimeSeconds / 60) % 60)
 
-	def getFilamentAmount(self, e=0):
-		if self._filamentMM[e] == 0.0:
-			return None
-		return _('%0.2f meter %0.0f gram') % (float(self._filamentMM[e]) / 1000.0, self.getFilamentWeight(e) * 1000.0)
+	def getFilamentAmount(self):
+		return self._filamentMM
 
 	def getLog(self):
 		return self._engineLog
